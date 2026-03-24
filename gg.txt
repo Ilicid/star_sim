@@ -1,0 +1,6 @@
+ide 1: termodynamik
+ide 2: omskriving af html spill
+ide 3: shitty game engine / opengl tingy
+ide 4: disk launcher
+ide 5: vintage mod
+ide 6: visualising af sorting algoritem
