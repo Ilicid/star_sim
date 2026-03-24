@@ -1,6 +1,19 @@
-ide 1: termodynamik
-ide 2: omskriving af html spill
-ide 3: shitty game engine / opengl tingy
-ide 4: disk launcher
-ide 5: vintage mod
-ide 6: visualising af sorting algoritem
+|---------------------------------------------------------------------|
+|ideas:					 |			      |
+|---------------------------------------------------------------------|
+|	termodynamik			 | er der nok?		      |
+|	omskriving af html spill	 | nok ikke		      |
+|	shitty game engine / opengl tingy| lidt for meget	      |
+|	disk launcher			 | måske		      |
+|	vintage mod			 | nok ik en god ide til exam |
+|	visualising af sorting algoritem | spænde måske		      |
+|---------------------------------------------------------------------|
+|sprog:					 |			      |
+|---------------------------------------------------------------------|
+|	python				 | I like it		      |
+|	c *				 | idk man		      |
+|	rust				 | nej			      |
+|	java				 | maybe?		      |
+|	js, css, html			 | nok ikke		      |
+|	lua				 | idek			      |
+|---------------------------------------------------------------------|
