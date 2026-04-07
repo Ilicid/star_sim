@@ -1,0 +1,39 @@
+|---------------------------------------------------------------------|
+|ideas:					 |			                                  |
+|---------------------------------------------------------------------|
+|	termodynamik			            | er der nok?		          |
+|	omskriving af html spill	        | nok ikke		              |
+|	shitty game engine / opengl tingy   | lidt for meget	          |
+|	disk launcher			            | måske		                  |
+|	vintage mod			                | nok ik en god ide til exam  |
+|	visualising af sorting algoritem    | spænde måske		          |
+|---------------------------------------------------------------------|
+|sprog:					 |			                                  |
+|---------------------------------------------------------------------|
+|	python				 | I like it		                          |
+|	c *                  | might	                                  |
+|	rust				 | nej			                              |
+|	java				 | maybe?		                              |
+|	js, css, html	     | nok ikke		                              |
+|	lua				     | idek			                              |
+|---------------------------------------------------------------------|
+
+
+final = space sim
+start 2 planets
+later add moon
+later add more suns
+later sitelites
+later astroids
+
+systems needed:
+planets
+
+shadows
+
+stars
+    pull / atract planets
+
+stat display
+
+curser n keyboard stuff
