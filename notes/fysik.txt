@@ -1,0 +1,16 @@
+gravity = Ft
+Ft = m * g
+m = mass
+g = gravitational acceleration, g can be found with g = (G * M)/(r²)
+G is the Universal Gravitational Constant and is 6.6743 × 10-11 N/(kg2/m2)
+M is the mass of the mass of the celestial body assosiated with G
+r is distence from the center of the mass to the other point in space
+
+det helle kan skrives som Ft = G*(M*m)/(r²)
+
+undvigelseshastighed
+Vund = \sqrt((2*G*M)/(R))
+R is the raduis of the celestial body that the object is orbiting
+
+
+astronomi 3.1.2
