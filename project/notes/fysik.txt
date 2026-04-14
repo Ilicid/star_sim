@@ -24,4 +24,10 @@ Vis-viva equation for orbiting
 
 v² = G*M((2)/(r)-(1)/(a))
 
+-----------------------------------------------------------------------------------------
+
 look at https://en.wikipedia.org/wiki/Kepler_orbit#Determination_of_the_Kepler_orbit_that_corresponds_to_a_given_initial_state
+Lunar theory
+Cowell's method
+Encke's method
+Sperling–Burdet method
