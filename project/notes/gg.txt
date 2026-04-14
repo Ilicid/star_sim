@@ -27,13 +27,16 @@ later sitelites
 later astroids
 
 systems needed:
-planets
 
-shadows
+planets
 
 stars
     pull / atract planets
 
 stat display
+    masses
+    raduis
+    Orbital period
+    eccentricity
 
 curser n keyboard stuff

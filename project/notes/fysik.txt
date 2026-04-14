@@ -8,9 +8,20 @@ r is distence from the center of the mass to the other point in space
 
 det helle kan skrives som Ft = G*(M*m)/(r²)
 
+-----------------------------------------------------------------------------------------
+
 undvigelseshastighed
 Vund = \sqrt((2*G*M)/(R))
 R is the raduis of the celestial body that the object is orbiting
 
+-----------------------------------------------------------------------------------------
 
 astronomi 3.1.2
+
+-----------------------------------------------------------------------------------------
+
+Vis-viva equation for orbiting
+
+v² = G*M((2)/(r)-(1)/(a))
+
+look at https://en.wikipedia.org/wiki/Kepler_orbit#Determination_of_the_Kepler_orbit_that_corresponds_to_a_given_initial_state
