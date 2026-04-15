@@ -1,4 +1,4 @@
 # Define the __all__ variable
-__all__ = ["display"]
+__all__ = ["display","celest","stars"]
 
-from .display import display
+from . import display, celest, stars
