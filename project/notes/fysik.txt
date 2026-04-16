@@ -31,3 +31,28 @@ Lunar theory
 Cowell's method
 Encke's method
 Sperling–Burdet method
+
+-----------------------------------------------------------------------------------------
+
+thingy
+start pos r = (x,y)
+
+distence from star to planet via pythagoras |r| = \sqrt(x²+y²)  should point towards the star
+
+make it a normalized vector that is 1 long and points to the star Rn = (x/|r|, y/|r|)
+
+gravitational pull of the star is (G*M)/r²
+
+now add the strenght to the vector Rn to make acceleration
+
+((G*M)/r²)*Rn or ((G*M)/r²)*(x/|r|, y/|r|) or even further ((G*M)/r²)*(\sqrt(x²+y²), y/\sqrt(x²+y²))
+
+use Verlet integration or smth idek
+
+-----------------------------------------------------------------------------------------
+
+(G*M)/r² is from Newton's law of universal gravitation which is f = G*((m1*m2)/(r²))
+
+f = G*((m1*m2)/(r²)) gives force i need acceleration, acceleration is given by force/mass or a = f/m
+
+which would be a = ((G*m1*m2)/(r²))*1/m1 which becomes (G*M)/r²
