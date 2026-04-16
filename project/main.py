@@ -14,5 +14,6 @@ while True:
             sys.exit()
 
     display.display()
+    p1.draw(display.screen)
     s1.draw(display.screen)
     display.display_update()

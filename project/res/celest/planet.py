@@ -2,7 +2,7 @@ import pygame
 
 class Planet():
     def __init__(self) -> None:
-        self.radius: int
+        self.radius = 10
         self.mass: int # or mass idk
 
         #________________________________________________________________________________________________________#
@@ -11,13 +11,7 @@ class Planet():
         #________________________________________________________________________________________________________#
 
         self.position = [0,0]
-        self.color: int
-
-        width, height = [20,20]
-
-        self.surface = pygame.Surface((width, height)).convert()
-        self.surface.fill((255, 0, 242))
-        self.rect = self.surface.get_rect()
+        self.color = (0,255,0)
 
     def setPrams(self, radius, mass, angle, velocity, position, color) -> None:
         self.radius = radius
@@ -36,6 +30,4 @@ class Planet():
         return [self.position[0], self.position[1]]
 
     def draw(self, SCREEN) -> None:
-        x_pos, y_pos = self.position
-        self.rect.center = (x_pos, y_pos)
-        SCREEN.blit(self.surface, self.rect)
+        pygame.draw.circle(SCREEN, self.color, self.position, self.radius)
