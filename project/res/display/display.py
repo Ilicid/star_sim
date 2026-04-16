@@ -1,12 +1,12 @@
 import pygame
 
-width, height = (900,900)
+width, height = (900,600)
 
 # set display mode with vsync enabled
 screen = pygame.display.set_mode((width, height), vsync=1)
 
 background_surface = pygame.Surface((width, height)).convert()
-background_surface.fill((3, 69, 28))
+background_surface.fill((0,0,0))
 
 fps = 60
 

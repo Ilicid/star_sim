@@ -9,4 +9,4 @@ class Star():
         self.position = [x // 2, y // 2]
     
     def draw(self, SCREEN):
-        pygame.draw.circle(SCREEN, (100, 100, 100), self.position, self.radius)
+        pygame.draw.circle(SCREEN, (252, 219, 3), self.position, self.radius)
