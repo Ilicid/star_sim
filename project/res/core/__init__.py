@@ -1,3 +1,4 @@
-__all__ = ["gravi"]
+# Define the __all__ variable
+__all__ = ["display"]
 
-from .gravi import gravi
+from .display import *

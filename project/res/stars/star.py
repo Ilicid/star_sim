@@ -2,15 +2,22 @@ import pygame
 
 class Star():
     def __init__(self) -> None:
-        self.mass: int
-        self.radius: int = 218 # use au as units
+        self.mass: float # why am i type hinting??
+        self.radius: int = 218 # default radius so it dont give error
+        self.position: tuple[int,int]
 
-        x, y = pygame.display.get_window_size()
-        self.position = [x // 2, y // 2] # allays makes the star the center
+        self.color = (255,255,255)
     
-    def setParams(self, M, R):
+    def setParams(self, M: float, R: int):
         self.mass = M
         self.radius = R
     
     def draw(self, SCREEN):
-        pygame.draw.circle(SCREEN, (255,255,255), self.position, self.radius)
+        x, y = pygame.display.get_window_size()
+        self.position = (x // 2, y // 2) # just here for now
+        pygame.draw.circle(SCREEN, self.color, self.position, self.radius)
+
+    def draw2(self, SCREEN): # cuz nicklas
+        x, y = pygame.display.get_window_size()
+        self.position = (x // 2, y // 2)
+        pygame.draw.circle(SCREEN, (255, 174, 0), self.position, self.radius)

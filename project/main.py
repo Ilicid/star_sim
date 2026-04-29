@@ -1,19 +1,19 @@
 import pygame
-import sys
-from res import display, celest, stars
+
+from res import celest, stars, core
 
 pygame.init()
+print("started")
+
+window = core.display()
 
 p1 = celest.Planet()
 s1 = stars.Star()
 
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-
-    display.display()
-    p1.draw(display.screen)
-    s1.draw(display.screen)
-    display.display_update()
+    window.handle_events()
+    window.empty()
+    p1.draw(window.screen)
+    s1.draw(window.screen)
+    #s1.draw2(window.screen)
+    window.update()
