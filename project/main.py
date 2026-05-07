@@ -1,19 +1,18 @@
 import pygame
 
-from res import celest, stars, core
+from res import Celest, Engine, Stars, Window
 
 pygame.init()
+
+window = Window.display()
+window2 = Window.display()
+
+engine = Engine.gravi_v1()
+
 print("started")
-
-window = core.display()
-
-p1 = celest.Planet()
-s1 = stars.Star()
 
 while True:
     window.handle_events()
     window.empty()
-    p1.draw(window.screen)
-    s1.draw(window.screen)
-    #s1.draw2(window.screen)
+
     window.update()

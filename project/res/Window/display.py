@@ -12,7 +12,7 @@ class display:
         #----------background stuff----------#
 
         self.background_surface = pygame.Surface((self.width, self.height)).convert()
-        self.background_surface.fill((0, 0, 255))
+        self.background_surface.fill((0, 0, 0))
     
     def empty(self):
         self.screen.blit(self.background_surface, (0, 0))
@@ -33,4 +33,4 @@ class display:
 
                 # redraw background, so it doesnt make that ulgy thingy
                 self.background_surface = pygame.Surface((self.width, self.height)).convert()
-                self.background_surface.fill((0, 0, 255))
+                self.background_surface.fill((0, 0, 0))

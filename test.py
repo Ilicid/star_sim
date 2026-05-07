@@ -59,7 +59,7 @@ class Planet():
 
     def draw(self, SCREEN) -> None:
         pygame.draw.circle(SCREEN, self.color, self.position, self.radius)
-
+        
 class Star():
     def __init__(self) -> None:
         self.mass: float # why am i type hinting??
