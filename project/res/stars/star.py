@@ -12,6 +12,10 @@ class Star():
         self.mass = M
         self.radius = R
     
+    def getParams(self, PARAM):
+        params = [self.mass, self.velocity, self.position, self.radius, self.color]
+        return params[PARAM]
+
     def draw(self, SCREEN):
         x, y = pygame.display.get_window_size()
         self.position = (x // 2, y // 2) # just here for now
