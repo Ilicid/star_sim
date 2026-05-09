@@ -130,18 +130,21 @@ class gravi:
 
 p1 = Planet()
 #           Rad Mass Velos     Pos
-p1.setParams(8, 300, [20,100], [200,400], (200,0,0))
+p1.setParams(8, 8000, [20,100], [200,400], (200,0,0))
 p2 = Planet()
-p2.setParams(4, 260, [20,100], [250,450], (0,200,0))
+p2.setParams(4, 4000, [20,100], [250,450], (0,200,0))
 p3 = Planet()
-p3.setParams(7, 470, [34,90], [250,500], (0,0,200))
+p3.setParams(7, 7000, [34,90], [250,500], (0,0,200))
 p4 = Planet()
-p4.setParams(3, 200, [60,120], [300,450], (0,200,200))
+p4.setParams(3, 3000, [60,120], [300,450], (0,200,200))
 p5 = Planet()
-p5.setParams(2, 150, [20,100], [200,350], (200,200,200))
+p5.setParams(2, 2000, [20,100], [200,350], (200,200,200))
 
 s1 = Planet()
 s1.setParams(100, 3000000, [0,0], [450,350], (255,255,255))
+
+s2 = Planet()
+s2.setParams(100, 3000000, [300,-220], [450,750], (255,255,255))
 
 engine = gravi()
 window = display()
@@ -153,7 +156,7 @@ engine.appenedBody(p4)
 engine.appenedBody(p5)
 
 engine.appenedBody(s1)
-#engine.appenedBody(p3)
+#engine.appenedBody(s2)
 
 while True:
     window.handle_events()
@@ -166,4 +169,5 @@ while True:
     p4.draw(window.screen)
     p5.draw(window.screen)
     s1.draw(window.screen)
+    s2.draw(window.screen)
     window.update()
