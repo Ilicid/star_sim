@@ -1,4 +1,5 @@
-from contextlib import nullcontext
+from pygame.surface import Surface
+
 import pygame
 import sys
 import math
@@ -6,6 +7,10 @@ import math
 var = 0
 
 pygame.init()
+
+var = False
+var2 = 1
+var3 = 0.1
 
 class display:
     def __init__(self) -> None:
@@ -38,8 +43,8 @@ class display:
                 self.width, self.height = event.size
 
                 # redraw background, so it doesnt make that ulgy thingy
-                self.background_surface = pygame.Surface((self.width, self.height)).convert()
-                self.background_surface.fill((0, 0, 0))
+                self.background_surface: Surface = pygame.Surface((self.width, self.height)).convert()
+                self.background_surface.fill(color=(0, 0, 0))
 
 class Planet():
     def __init__(self) -> None:
@@ -56,7 +61,7 @@ class Planet():
         self.position = POSITION
         self.color = RGB
         
-    def updatePos(self, X, Y):
+    def updatePos(self, X, Y) -> None:
         self.position[0] += X
         self.position[1] += Y
 
@@ -71,11 +76,11 @@ class Star():
 
         self.color = (255,255,255)
     
-    def setParams(self, R: int, M: float):
+    def setParams(self, R: int, M: float) -> None:
         self.radius = R
         self.mass = M
 
-    def draw(self, SCREEN):
+    def draw(self, SCREEN) -> None:
         x, y = pygame.display.get_window_size()
         self.position = (x // 2, y // 2) # just here for now
         pygame.draw.circle(SCREEN, self.color, self.position, self.radius)
@@ -120,10 +125,10 @@ class gravi:
                 ax += self.G * MASS * dx / dist**3
                 ay += self.G * MASS * dy / dist**3
 
-            VELOCITY[0] += ax
-            VELOCITY[1] += ay
+            VELOCITY[0] += ax * self.dt
+            VELOCITY[1] += ay * self.dt
 
-            #print(VELOCITY[0], VELOCITY[1])
+
             body1.updatePos(
                 VELOCITY[0] * self.dt,
                 VELOCITY[1] * self.dt
@@ -136,14 +141,11 @@ p1 = Planet()
 #           Rad Mass                Velos                    Pos
 p1.setParams(8, 5972200000000.0, [0.5, 3.5], [200,400], (200,0,0))
 
-
 s1 = Planet()
 s1.setParams(100, 1.9890000000000003e+18, [0,0], [450,350], (255,255,255))
 
 engine.appenedBody(p1)
-
 engine.appenedBody(s1)
-
 
 while True:
     window.handle_events()
