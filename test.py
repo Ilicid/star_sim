@@ -1,6 +1,9 @@
+from contextlib import nullcontext
 import pygame
 import sys
 import math
+
+var = 0
 
 pygame.init()
 
@@ -8,7 +11,7 @@ class display:
     def __init__(self) -> None:
         self.width, self.height = (900, 600)
         self.clock = pygame.time.Clock()
-        self.fps = 60
+        self.sim_speed = 200
 
         self.screen = pygame.display.set_mode((self.width, self.height), pygame.RESIZABLE) # make window thing
 
@@ -22,7 +25,7 @@ class display:
 
     def update(self):
         pygame.display.update()
-        self.clock.tick(self.fps)
+        self.clock.tick(self.sim_speed)
     
     def handle_events(self):
         for event in pygame.event.get():
@@ -87,7 +90,7 @@ class gravi:
         self.G: float =  1 #6.67430 * (10**(-11))
         self.bodies: list = []
         self.QUEUE: list = []
-        self.dt: float = 0.02
+        self.dt: float = 1*10**-15
     
     def appenedBody(self, BODY):
         self.bodies.append(BODY)
@@ -117,57 +120,36 @@ class gravi:
                 ax += self.G * MASS * dx / dist**3
                 ay += self.G * MASS * dy / dist**3
 
-            # update velocity ONCE
-            VELOCITY[0] += ax * self.dt
-            VELOCITY[1] += ay * self.dt
+            VELOCITY[0] += ax
+            VELOCITY[1] += ay
 
             #print(VELOCITY[0], VELOCITY[1])
-            # update position ONCE
             body1.updatePos(
                 VELOCITY[0] * self.dt,
                 VELOCITY[1] * self.dt
             )
 
-p1 = Planet()
-#           Rad Mass Velos     Pos
-p1.setParams(8, 8000, [20,100], [200,400], (200,0,0))
-p2 = Planet()
-p2.setParams(4, 4000, [20,100], [250,450], (0,200,0))
-p3 = Planet()
-p3.setParams(7, 7000, [34,90], [250,500], (0,0,200))
-p4 = Planet()
-p4.setParams(3, 3000, [60,120], [300,450], (0,200,200))
-p5 = Planet()
-p5.setParams(2, 2000, [20,100], [200,350], (200,200,200))
-
-s1 = Planet()
-s1.setParams(100, 3000000, [0,0], [450,350], (255,255,255))
-
-s2 = Planet()
-s2.setParams(100, 3000000, [300,-220], [450,750], (255,255,255))
-
 engine = gravi()
 window = display()
 
+p1 = Planet()
+#           Rad Mass                Velos                    Pos
+p1.setParams(8, 5972200000000.0, [0.5, 3.5], [200,400], (200,0,0))
+
+
+s1 = Planet()
+s1.setParams(100, 1.9890000000000003e+18, [0,0], [450,350], (255,255,255))
+
 engine.appenedBody(p1)
-engine.appenedBody(p2)
-engine.appenedBody(p3)
-engine.appenedBody(p4)
-engine.appenedBody(p5)
 
 engine.appenedBody(s1)
-#engine.appenedBody(s2)
+
 
 while True:
     window.handle_events()
     window.empty()
     engine.compute()
     p1.draw(window.screen)
-    print(p1.velocity[0], p1.velocity[0])
-    p2.draw(window.screen)
-    p3.draw(window.screen)
-    p4.draw(window.screen)
-    p5.draw(window.screen)
+    print(p1.velocity[0],p1.velocity[1])
     s1.draw(window.screen)
-    s2.draw(window.screen)
     window.update()

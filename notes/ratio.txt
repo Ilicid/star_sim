@@ -1,3 +1,9 @@
- earth = (5.9722 * 10^24)
- sun = 1.989 * 10^30
+mass earth = (5.9722 * 10^24)
+mass sun = 1.989 * 10^30
 jupiter =  1.898 × 10^27 kg
+
+ratio = 10^12
+
+dist earth = 150000000
+
+dist earth
