@@ -1,26 +1,14 @@
 import math
 
-class gravi:
+class Gravi:
     def __init__(self) -> None:
         self.G: float =  1 #6.67430 * (10**(-11))
         self.bodies: list = []
         self.QUEUE: list = []
-        self.dt: float = 0.02
-
-    def configure(self, SETTING, VALUE):
-        match SETTING:
-            case "dt":
-                self.dt = VALUE
-            case "G":
-                self.G = VALUE
+        self.dt: float = 1*10**-15
     
     def appenedBody(self, BODY):
-        for b in BODY:
-            self.bodies.append(b)
-
-    def scenario(self):
-        pass
-
+        self.bodies.append(BODY)
     def compute(self):
         for body1 in self.bodies:
             POS1 = body1.position
@@ -47,12 +35,10 @@ class gravi:
                 ax += self.G * MASS * dx / dist**3
                 ay += self.G * MASS * dy / dist**3
 
-            # update velocity ONCE
-            VELOCITY[0] += ax * self.dt
-            VELOCITY[1] += ay * self.dt
+            VELOCITY[0] += ax
+            VELOCITY[1] += ay
 
             #print(VELOCITY[0], VELOCITY[1])
-            # update position ONCE
             body1.updatePos(
                 VELOCITY[0] * self.dt,
                 VELOCITY[1] * self.dt

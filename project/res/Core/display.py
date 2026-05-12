@@ -1,15 +1,13 @@
 import pygame
 import sys
 
-class display:
+class Display:
     def __init__(self) -> None:
         self.width, self.height = (900, 600)
         self.clock = pygame.time.Clock()
-        self.fps = 60
+        self.sim_speed = 200
 
         self.screen = pygame.display.set_mode((self.width, self.height), pygame.RESIZABLE) # make window thing
-
-        #----------background stuff----------#
 
         self.background_surface = pygame.Surface((self.width, self.height)).convert()
         self.background_surface.fill((0, 0, 0))
@@ -19,7 +17,7 @@ class display:
 
     def update(self):
         pygame.display.update()
-        self.clock.tick(self.fps)
+        self.clock.tick(self.sim_speed)
     
     def handle_events(self):
         for event in pygame.event.get():

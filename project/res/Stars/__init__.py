@@ -1,3 +1,3 @@
-__all__ = []
+__all__ = ["Star"]
 
-from .star import *
+from .star import Star

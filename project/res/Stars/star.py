@@ -8,16 +8,9 @@ class Star():
 
         self.color = (255,255,255)
     
-    def setParams(self, RADIUS, MASS, VELOCITY, POSITION, RGB) -> None:
-        self.radius = RADIUS
-        self.mass = MASS
-        self.velocity = VELOCITY
-        self.position = POSITION
-        self.color = RGB
-    
-    def updatePos(self, POSITION):
-        self.position = POSITION
-        
+    def setParams(self, R: int, M: float):
+        self.radius = R
+        self.mass = M
 
     def draw(self, SCREEN):
         x, y = pygame.display.get_window_size()
