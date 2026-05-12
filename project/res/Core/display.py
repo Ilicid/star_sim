@@ -5,7 +5,7 @@ class Display:
     def __init__(self) -> None:
         self.width, self.height = (900, 600)
         self.clock = pygame.time.Clock()
-        self.sim_speed = 200
+        self.sim_speed = 250
 
         self.screen = pygame.display.set_mode((self.width, self.height), pygame.RESIZABLE) # make window thing
 

@@ -2,10 +2,11 @@ import math
 
 class Gravi:
     def __init__(self) -> None:
-        self.G: float =  1 #6.67430 * (10**(-11))
+        #self.G: float =  1 #6.67430 * (10**(-11))
+        self.G: float =  6.67430 * (10**(-11))
         self.bodies: list = []
         self.QUEUE: list = []
-        self.dt: float = 1*10**-15
+        self.dt: float = 0.000001
     
     def appenedBody(self, BODY):
         self.bodies.append(BODY)
@@ -38,7 +39,6 @@ class Gravi:
             VELOCITY[0] += ax
             VELOCITY[1] += ay
 
-            #print(VELOCITY[0], VELOCITY[1])
             body1.updatePos(
                 VELOCITY[0] * self.dt,
                 VELOCITY[1] * self.dt
