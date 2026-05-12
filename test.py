@@ -1,5 +1,4 @@
-from pygame.surface import Surface
-
+from contextlib import nullcontext
 import pygame
 import sys
 import math
@@ -8,15 +7,11 @@ var = 0
 
 pygame.init()
 
-var = False
-var2 = 1
-var3 = 0.1
-
 class display:
     def __init__(self) -> None:
         self.width, self.height = (900, 600)
         self.clock = pygame.time.Clock()
-        self.sim_speed = 200
+        self.sim_speed = 9999999
 
         self.screen = pygame.display.set_mode((self.width, self.height), pygame.RESIZABLE) # make window thing
 
@@ -43,8 +38,8 @@ class display:
                 self.width, self.height = event.size
 
                 # redraw background, so it doesnt make that ulgy thingy
-                self.background_surface: Surface = pygame.Surface((self.width, self.height)).convert()
-                self.background_surface.fill(color=(0, 0, 0))
+                self.background_surface = pygame.Surface((self.width, self.height)).convert()
+                self.background_surface.fill((0, 0, 0))
 
 class Planet():
     def __init__(self) -> None:
@@ -61,7 +56,7 @@ class Planet():
         self.position = POSITION
         self.color = RGB
         
-    def updatePos(self, X, Y) -> None:
+    def updatePos(self, X, Y):
         self.position[0] += X
         self.position[1] += Y
 
@@ -76,11 +71,11 @@ class Star():
 
         self.color = (255,255,255)
     
-    def setParams(self, R: int, M: float) -> None:
+    def setParams(self, R: int, M: float):
         self.radius = R
         self.mass = M
 
-    def draw(self, SCREEN) -> None:
+    def draw(self, SCREEN):
         x, y = pygame.display.get_window_size()
         self.position = (x // 2, y // 2) # just here for now
         pygame.draw.circle(SCREEN, self.color, self.position, self.radius)
@@ -125,10 +120,10 @@ class gravi:
                 ax += self.G * MASS * dx / dist**3
                 ay += self.G * MASS * dy / dist**3
 
-            VELOCITY[0] += ax * self.dt
-            VELOCITY[1] += ay * self.dt
+            VELOCITY[0] += ax
+            VELOCITY[1] += ay
 
-
+            #print(VELOCITY[0], VELOCITY[1])
             body1.updatePos(
                 VELOCITY[0] * self.dt,
                 VELOCITY[1] * self.dt
@@ -138,20 +133,27 @@ engine = gravi()
 window = display()
 
 p1 = Planet()
-#           Rad Mass                Velos                    Pos
-p1.setParams(8, 5972200000000.0, [0.5, 3.5], [200,400], (200,0,0))
+#           Rad Mass                Velos            Pos
+p1.setParams(8, 5972200000000.0, [0, 25*10**14], [200,400], (200,0,0))
+
+p2 = Planet()
+p2.setParams(8, 4072200000000.0, [0, 25*10**14], [850,430], (0,200,0))
+
 
 s1 = Planet()
-s1.setParams(100, 1.9890000000000003e+18, [0,0], [450,350], (255,255,255))
+s1.setParams(100, 1.989*10**18, [0,0], [450,350], (255,255,255))
 
 engine.appenedBody(p1)
+engine.appenedBody(p2)
+
 engine.appenedBody(s1)
+
 
 while True:
     window.handle_events()
     window.empty()
     engine.compute()
     p1.draw(window.screen)
-    print(p1.velocity[0],p1.velocity[1])
+    p2.draw(window.screen)
     s1.draw(window.screen)
     window.update()
