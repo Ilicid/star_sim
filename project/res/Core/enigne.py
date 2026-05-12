@@ -2,10 +2,8 @@ import math
 
 class Gravi:
     def __init__(self) -> None:
-        #self.G: float =  1 #6.67430 * (10**(-11))
         self.G: float =  6.67430 * (10**(-11))
         self.bodies: list = []
-        self.QUEUE: list = []
         self.dt: float = 0.000001
     
     def appenedBody(self, BODY):
