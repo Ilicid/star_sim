@@ -6,7 +6,7 @@ class Gravi:
         self.bodies: list = []
         self.dt: float = 0.000001
     
-    def appenedBody(self, BODY):
+    def appendBody(self, BODY):
         self.bodies.append(BODY)
     def compute(self):
         for body1 in self.bodies:
